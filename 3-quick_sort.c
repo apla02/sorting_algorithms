@@ -33,7 +33,7 @@ int partition(int *array, int *lower, int *high, int size)
 		if (*j < *Pivote)
 		{
 			swap(i, j);
-			if (i != j)
+			if (j != i)
 				print_array(array, size);
 			i += 1;
 		}
@@ -62,9 +62,7 @@ void quickSort(int *array, int *lower, int *high, int size)
 
 		if (Particion)
 			quickSort(array, lower, array + (Particion - 1), size);
-
-		if ((Particion != (size - 1)))
-			quickSort(array, array + (Particion + 1), high, size);
+		quickSort(array, array + (Particion + 1), high, size);
 	}
 }
 /**
