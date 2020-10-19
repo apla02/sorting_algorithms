@@ -15,7 +15,7 @@ void selection_sort(int *array, size_t size)
 
 	for (i = 0 ; i < size - 1; i++)
 	{
-		int min = i;
+		unsigned long int min = i;
 
 		for (j = i + 1; j < size ; j++)
 		{
@@ -24,8 +24,11 @@ void selection_sort(int *array, size_t size)
 				min = j;
 			}
 		}
-		swap(&array[min], &array[i]);
-		print_array(array, size);
+		if (min != i)
+		{
+			swap(&array[min], &array[i]);
+			print_array(array, size);
+		}
 	}
 }
 /**
@@ -41,4 +44,5 @@ void swap(int *element1, int *element2)
 	tmp = *element1;
 	*element1 = *element2;
 	*element2 = tmp;
+
 }
