@@ -19,10 +19,10 @@ void swap(int *i, int *j)
  * @array: Data structure.
  * @lower: Index lower
  * @high: Index high
+ * @size: size array
  * Return: Index
  */
-
-int partition(int *array, int *lower, int *high)
+int partition(int *array, int *lower, int *high, int size)
 {
 	int *Pivote = high;
 	int *j = lower;
@@ -33,11 +33,16 @@ int partition(int *array, int *lower, int *high)
 		if (*j < *Pivote)
 		{
 			swap(i, j);
+			if (i != j)
+				print_array(array, size);
 			i += 1;
 		}
 		j += 1;
 	}
 	swap(i, Pivote);
+	if (i != j)
+		print_array(array, size);
+
 	return (i - array);
 }
 
@@ -53,20 +58,13 @@ void quickSort(int *array, int *lower, int *high, int size)
 {
 	if (lower < high)
 	{
-		int Particion = partition(array, lower, high);
-
-		if (Particion != (size - 1))
-			print_array(array, size);
+		int Particion = partition(array, lower, high, size);
 
 		if (Particion)
 			quickSort(array, lower, array + (Particion - 1), size);
-		else
-			print_array(array, size);
 
 		if ((Particion != (size - 1)))
 			quickSort(array, array + (Particion + 1), high, size);
-		else
-			print_array(array, size);
 	}
 }
 /**
