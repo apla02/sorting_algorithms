@@ -66,7 +66,7 @@ void quickSort(int *array, int *lower, int *high, int size)
 	}
 }
 /**
- * quick_sort -  function that sorts an array of integers in ascending
+ * quick_sort - function that sorts an array of integers in ascending
  *               order using the Quick sort algorithm
  * @array: data structure that the function is applied to
  * @size: Data structure size
